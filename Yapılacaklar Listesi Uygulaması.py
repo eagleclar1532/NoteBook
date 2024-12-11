@@ -14,12 +14,15 @@ def addTask():
     task_entry.delete(0, END)
 
     if task:
+        # Görevin tarih ve saat bilgisinialma
         date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")  # Tarih formatı
         task_with_date = f"{task} - {date}"
-
+        
+        # Görevi dosyaya yazma
         with open("tasklist.txt", 'a') as taskfile:
             taskfile.write(f"\n{task_with_date}")
-        
+            
+        # Görevi listede de gösterme
         task_list.append(task_with_date)
         listbox.insert(END, task_with_date)
 
@@ -64,7 +67,7 @@ noteImage = PhotoImage(file="Image/task.png")
 Label(root, image=noteImage, bg="#32405b").place(x=340, y=25)
 
 heading = Label(root, text="TÜM GÖREVLER", font="arial 20 bold", fg="white", bg="#32405b")
-heading.place(x=130, y=20)
+heading.place(x=100, y=20)
 
 # Main
 frame = Frame(root, width=400, height=50, bg="white")
