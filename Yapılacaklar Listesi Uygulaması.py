@@ -14,15 +14,12 @@ def addTask():
     task_entry.delete(0, END)
 
     if task:
-        # Görevin tarih ve saat bilgisini alıyoruz
         date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")  # Tarih formatı
         task_with_date = f"{task} - {date}"
 
-        # Görevi dosyaya yazıyoruz
         with open("tasklist.txt", 'a') as taskfile:
             taskfile.write(f"\n{task_with_date}")
         
-        # Görevi listede de gösteriyoruz
         task_list.append(task_with_date)
         listbox.insert(END, task_with_date)
 
